@@ -1,6 +1,6 @@
-TITLE: Artificial intelligence and machine learning in physics 
+TITLE: Artificial intelligence and machine learning in physics and Materials Science
 AUTHOR: Morten Hjorth-Jensen at Department of Physics and Astronomy and FRIB, Michigan State University, USA, and Department of Physics and Center for Computing in Science Education, University of Oslo, Norway
-DATE: Department of Physics and Astronomy colloquium, University of Catania and celebrating MARCELLO BALDO'S 80th birthday
+DATE: SMN workshop
 
 
 !split
@@ -24,25 +24,7 @@ These slides at URL:"https://mhjensenseminars.github.io/MachineLearningTalk/doc/
 
 Jane Kim (MSU), Julie Butler (MSU), Patrick Cook (MSU), Danny Jammooa (MSU), Daniel Bazin (MSU), Dean Lee (MSU), Witek Nazarewicz (MSU), Michelle Kuchera (Davidson College), Even Nordhagen (UiO), Robert Solli (UiO, Expert Analytics), Bryce Fore (ANL), Alessandro Lovato (ANL), Stefano Gandolfi (LANL), Francesco Pederiva (UniTN), and Giuseppe Carleo (EPFL). 
 Niyaz Beysengulov and Johannes Pollanen (experiment, MSU); Zachary Stewart, Jared Weidman, and Angela Wilson (quantum chemistry, MSU)
-Jonas Flaten, Oskar, Leinonen, Øyvind Sigmundson Schøyen, Stian Dysthe Bilek, and Håkon Emil Kristiansen (UiO). Marianne Bathen and Lasse Vines (experiments (UiO). Excuses to those I have omitted.
-
-
-
-
-!split
-===== One of the first many-body workshops at the ECT$*$, Trento summer 1997 =====
-
-
-FIGURE: [Photos/manybody1997.jpeg, width=900 frac=1.0]
-
-
-!split
-===== Pairing in dense matter  =====
-
-
-FIGURE: [figures/paperbaldo.png, width=900 frac=1.0]
-
-
+Jonas Flaten, Oskar, Leinonen, Øyvind Sigmundson Schøyen, Stian Dysthe Bilek, and Håkon Emil Kristiansen (UiO). Marianne Bathen, David Gongorra and Lasse Vines (experiments (UiO). Excuses to those I have omitted.
 
 
 
@@ -112,7 +94,7 @@ We seek to minimize the function $\mathcal{C} (\mathbf{x}, f(\mathbf{\alpha}))$ 
 !eblock
 
 !split
-===== Low-level machine lerning, the family of ordinary least squares methods  =====
+===== Low-level machine learning, the family of ordinary least squares methods  =====
 
 Our data which we want to apply a machine learning method on, consist
 of a set of inputs $\bm{x}^T=[x_0,x_1,x_2,\dots,x_{n-1}]$ and the
@@ -163,7 +145,7 @@ This function represents one of many possible ways to define the so-called cost 
 !split
 ===== Training solution  =====
 
-Optimizing wrt to th eunknown paramters $\theta_j$ we get 
+Optimizing wrt to the unknown paramters $\theta_j$ we get 
 !bt
 \[
 \bm{X}^T\bm{y} = \bm{X}^T\bm{X}\bm{\theta},  
@@ -176,6 +158,7 @@ and if the matrix $\bm{X}^T\bm{X}$ is invertible we have the optimal values
 \]
 !et
 
+We say we 'learn' the unknown paramters $\bm{\theta}$ from the last equation.
 
 
 
@@ -323,7 +306,7 @@ o Theoretical models are often applied to entirely new nuclear systems and condi
 !split
 ===== Scientific Machine Learning =====
 
-An important and emerging field is what has been dubbed as scientific ML, see the article by Deiana et al "Applications and Techniques for Fast Machine Learning in Science, Big Data _5_, 787421 (2022):https://doi.org/10.3389/fdata.2022.787421"
+An important and emerging field is what has been dubbed as scientific ML, see the article by Deiana et al "Applications and Techniques for Fast Machine Learning in Science, Big Data 5, 787421 (2022)":"https://doi.org/10.3389/fdata.2022.787421"
 
 !bblock
 The authors discuss applications and techniques for fast machine
@@ -510,7 +493,6 @@ monotonically-increasing continuous function_.
 !split
 =====  Illustration of a single perceptron model and an FFNN =====
 
-FIGURE: [figures/nns.png, width=600 frac=0.7]  In a) we show a single perceptron model while in b) we dispay a network with two  hidden layers, an input layer and an output layer.
 
 
 !split
