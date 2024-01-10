@@ -74,12 +74,21 @@ Some of the most common tasks are:
 !split
 =====  The plethora  of machine learning algorithms/methods =====
 
-o Deep learning: Neural Networks (NN), Convolutional NN, Recurrent NN, Boltzmann machines, autoencoders and variational autoencoders  and generative adversarial networks, generative models 
+o Deep learning: Neural Networks (NNs), Convolutional NNs, Recurrent NNs, Boltzmann machines, autoencoders and variational autoencoders  and generative adversarial networks and other generative models 
 o Bayesian statistics and Bayesian Machine Learning, Bayesian experimental design, Bayesian Regression models, Bayesian neural networks, Gaussian processes and much more
 o Dimensionality reduction (Principal component analysis), Clustering Methods and more
 o Ensemble Methods, Random forests, bagging and voting methods, gradient boosting approaches 
 o Linear and logistic regression, Kernel methods, support vector machines and more
+o Transformers
 o Reinforcement Learning; Transfer Learning and more 
+
+
+!split
+===== Discriminative and Generative methods =====
+
+!split
+===== Examples of generative models =====
+
 
 
 !split
