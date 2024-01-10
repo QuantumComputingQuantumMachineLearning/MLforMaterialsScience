@@ -666,7 +666,7 @@ Analytical solutions in two and three dimensions ("M. Taut 1993 and 1994":"https
 
 
 !split
-===== Why Boltzmann machines? =====
+===== Generative models: Why Boltzmann machines? =====
 
 What is known as restricted Boltzmann Machines (RMB) have received a
 lot of attention lately.  One of the major reasons is that they can be
