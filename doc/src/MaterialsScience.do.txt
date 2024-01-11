@@ -85,12 +85,11 @@ Some of the most common tasks are:
 !split
 =====  The plethora  of machine learning algorithms/methods =====
 
-o Deep learning: Neural Networks (NNs), Convolutional NNs, Recurrent NNs, Boltzmann machines, autoencoders and variational autoencoders  and generative adversarial networks and other generative models 
+o Deep learning: Neural Networks (NNs), Convolutional NNs, Recurrent NNs, Transformers, Boltzmann machines, autoencoders and variational autoencoders  and generative adversarial networks and other generative models 
 o Bayesian statistics and Bayesian Machine Learning, Bayesian experimental design, Bayesian Regression models, Bayesian neural networks, Gaussian processes and much more
 o Dimensionality reduction (Principal component analysis), Clustering Methods and more
 o Ensemble Methods, Random forests, bagging and voting methods, gradient boosting approaches 
 o Linear and logistic regression, Kernel methods, support vector machines and more
-o Transformers
 o Reinforcement Learning; Transfer Learning and more 
 
 
@@ -355,13 +354,13 @@ _Job market, a personal statement_: "A familiarity with ML is almost becoming a 
 !bblock
 * "Mehta et al.":"https://arxiv.org/abs/1803.08823" and "Physics Reports (2019)":"https://www.sciencedirect.com/science/article/pii/S0370157319300766?via%3Dihub".
 * "Machine Learning and the Physical Sciences by Carleo et al":"https://link.aps.org/doi/10.1103/RevModPhys.91.045002"
+* "Predicting solid state material platforms for quantum technologies, Hebnes et al, Nature Computational Materials, 2022":"https://www.nature.com/articles/s41524-022-00888-3" 
 * "Artificial Intelligence and Machine Learning in Nuclear Physics, Amber Boehnlein et al., Reviews Modern of Physics 94, 031003 (2022)":"https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.94.031003" 
 * "Dilute neutron star matter from neural-network quantum states by Fore et al, Physical Review Research 5, 033062 (2023)":"https://journals.aps.org/prresearch/pdf/10.1103/PhysRevResearch.5.033062"
-* "Neural-network quantum states for ultra-cold Fermi gases, Jane Kim et al, Nature Physics Communcication, submitted":"https://doi.org/10.48550/arXiv.2305.08831"
+* "Neural-network quantum states for ultra-cold Fermi gases, Jane Kim et al, Nature Physics, in press (2024)":"https://doi.org/10.48550/arXiv.2305.08831"
 * "Message-Passing Neural Quantum States for the Homogeneous Electron Gas, Gabriel Pescia, Jane Kim et al. arXiv.2305.07240,":"https://doi.org/10.48550/arXiv.2305.07240"
 * "Efficient solutions of fermionic systems using artificial neural networks, Nordhagen et al, Frontiers in Physics 11, 2023":"https://doi.org/10.3389/fphy.2023.1061580"
-* "Report from the A.I. For Nuclear Physics  Workshop by Bedaque et al., Eur J. Phys. A 57, (2021)":"https://link.springer.com/article/10.1140/epja/s10050-020-00290-x"
-* "Particle Data Group summary on ML methods":"https://pdg.lbl.gov/2021/reviews/rpp2021-rev-machine-learning.pdf"
+
 !eblock
 
 
@@ -887,6 +886,47 @@ FIGURE: [figures/OB30hw1.png, width=700 frac=0.9]
 !bblock
 FIGURE: [figures/OB30hw01.png, width=700 frac=0.9]
 !eblock
+
+
+!split
+===== Classification of phases, Heisenberg model in 3D, magnetization =====
+
+!bblock
+FIGURE: [figures/heisenber0.png, width=700 frac=0.9]
+!eblock
+
+!split
+===== Classification of phases, Heisenberg model in 3D, susceptibility =====
+
+!bblock
+FIGURE: [figures/heisenber1.png, width=700 frac=0.9]
+!eblock
+
+!split
+===== Classification of phases, Heisenberg model in 3D, order =====
+
+!bblock
+FIGURE: [figures/heisenber4.png, width=700 frac=0.9]
+!eblock
+
+!split
+===== Classification of phases, Heisenberg model in 3D, CNNs training =====
+
+!bblock
+FIGURE: [figures/heisenber2.png, width=700 frac=0.9]
+!eblock
+
+!split
+===== Classification of phases, Heisenberg model in 3D, CNNs confusion matrix =====
+
+!bblock
+FIGURE: [figures/heisenber3.png, width=700 frac=0.9]
+!eblock
+
+
+
+
+
 
 
 !split
