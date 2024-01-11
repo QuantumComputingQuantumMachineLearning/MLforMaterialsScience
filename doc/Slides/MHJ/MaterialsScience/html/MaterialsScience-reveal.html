@@ -207,7 +207,7 @@ in physics. And why this could (or should) be of interest.
 <div class="alert alert-block alert-block alert-text-normal">
 <b></b>
 <p>
-<p>These slides at <a href="https://mhjensenseminars.github.io/MachineLearningTalk/doc/web/overview.html" target="_blank"><tt>https://mhjensenseminars.github.io/MachineLearningTalk/doc/web/overview.html</tt></a></p>
+<p>These slides at <a href="https://github.com/QuantumComputingQuantumMachineLearning/MLforMaterialsScience" target="_blank"><tt>https://github.com/QuantumComputingQuantumMachineLearning/MLforMaterialsScience</tt></a></p>
 </div>
 </section>
 
@@ -218,6 +218,26 @@ in physics. And why this could (or should) be of interest.
 Niyaz Beysengulov and Johannes Pollanen (experiment, MSU); Zachary Stewart, Jared Weidman, and Angela Wilson (quantum chemistry, MSU)
 Jonas Flaten, Oskar, Leinonen, &#216;yvind Sigmundson Sch&#248;yen, Stian Dysthe Bilek, and H&#229;kon Emil Kristiansen (UiO). Marianne Bathen, David Gongorra and Lasse Vines (experiments (UiO). Excuses to those I have omitted.
 </p>
+</section>
+
+<section>
+<h2 id="machine-learning-a-simple-perspective-on-the-interface-between-ml-and-physics">Machine learning. A simple perspective on the interface between ML and Physics </h2>
+
+<br/><br/>
+<center>
+<p><img src="figures/mlimage.png" width="800" align="bottom"></p>
+</center>
+<br/><br/>
+</section>
+
+<section>
+<h2 id="ml-in-nuclear-physics-or-any-field-in-physics">ML in Nuclear  Physics (or any field in physics) </h2>
+
+<br/><br/>
+<center>
+<p><img src="figures/ML-NP.png" width="900" align="bottom"></p>
+</center>
+<br/><br/>
 </section>
 
 <section>
@@ -354,7 +374,7 @@ discriminative in nature.
 
 <br/><br/>
 <center>
-<p><img src="figures/ML-NP.png" width="900" align="bottom"></p>
+<p><img src="figures/standarddeeplearning.png" width="900" align="bottom"></p>
 </center>
 <br/><br/>
 </section>
@@ -599,23 +619,16 @@ various algorithms and methods.
 </section>
 
 <section>
-<h2 id="machine-learning-a-simple-perspective-on-the-interface-between-ml-and-physics">Machine learning. A simple perspective on the interface between ML and Physics </h2>
-
-<br/><br/>
-<center>
-<p><img src="figures/mlimage.png" width="800" align="bottom"></p>
-</center>
-<br/><br/>
-</section>
-
-<section>
-<h2 id="ml-in-nuclear-physics-or-any-field-in-physics">ML in Nuclear  Physics (or any field in physics) </h2>
-
-<br/><br/>
-<center>
-<p><img src="figures/ML-NP.png" width="900" align="bottom"></p>
-</center>
-<br/><br/>
+<h2 id="good-books-with-hands-on-material-and-codes">Good books with hands-on material and codes </h2>
+<div class="alert alert-block alert-block alert-text-normal">
+<b></b>
+<p>
+<ul>
+<p><li> <a href="https://sebastianraschka.com/blog/2022/ml-pytorch-book.html" target="_blank">Sebastian Rashcka et al, Machine learning with Sickit-Learn and PyTorch</a></li>
+<p><li> <a href="https://www.oreilly.com/library/view/generative-deep-learning/9781098134174/ch01.html" target="_blank">David Foster, Generative Deep Learning with TensorFlow</a></li>
+<p><li> <a href="https://github.com/PacktPublishing/Hands-On-Generative-AI-with-Python-and-TensorFlow-2" target="_blank">Bali and Gavras, Generative AI with Python and TensorFlow 2</a></li>
+</ul>
+</div>
 </section>
 
 <section>
@@ -1076,28 +1089,129 @@ over (integrated out).
 
 <section>
 <h2 id="joint-distribution">Joint distribution </h2>
-
-<p>The restricted Boltzmann machine is described by a Boltzmann distribution</p>
+<p>The restricted Boltzmann machine is described by a Bolztmann distribution</p>
 <p>&nbsp;<br>
 $$
-\begin{align}
 	P_{rbm}(\mathbf{x},\mathbf{h}) = \frac{1}{Z} e^{-\frac{1}{T_0}E(\mathbf{x},\mathbf{h})},
-\tag{3}
-\end{align}
 $$
 <p>&nbsp;<br>
 
 <p>where \( Z \) is the normalization constant or partition function, defined as </p>
 <p>&nbsp;<br>
 $$
-\begin{align}
 	Z = \int \int e^{-\frac{1}{T_0}E(\mathbf{x},\mathbf{h})} d\mathbf{x} d\mathbf{h}.
-\tag{4}
-\end{align}
 $$
 <p>&nbsp;<br>
 
 <p>It is common to ignore \( T_0 \) by setting it to one. </p>
+</section>
+
+<section>
+<h2 id="network-elements-the-energy-function">Network Elements, the energy function  </h2>
+
+<p>The function \( E(\mathbf{x},\mathbf{h}) \) gives the <b>energy</b> of a
+configuration (pair of vectors) \( (\mathbf{x}, \mathbf{h}) \). The lower
+the energy of a configuration, the higher the probability of it. This
+function also depends on the parameters \( \mathbf{a} \), \( \mathbf{b} \) and
+\( W \). Thus, when we adjust them during the learning procedure, we are
+adjusting the energy function to best fit our problem.
+</p>
+</section>
+
+<section>
+<h2 id="defining-different-types-of-rbms-energy-based-models">Defining different types of RBMs (Energy based models) </h2>
+
+<p>There are different variants of RBMs, and the differences lie in the types of visible and hidden units we choose as well as in the implementation of the energy function \( E(\mathbf{x},\mathbf{h}) \). The connection between the nodes in the two layers is given by the weights \( w_{ij} \). </p>
+
+<div class="alert alert-block alert-block alert-text-normal">
+<b>Binary-Binary RBM:</b>
+<p>
+
+<p>RBMs were first developed using binary units in both the visible and hidden layer. The corresponding energy function is defined as follows:</p>
+<p>&nbsp;<br>
+$$
+	E(\mathbf{x}, \mathbf{h}) = - \sum_i^M x_i a_i- \sum_j^N b_j h_j - \sum_{i,j}^{M,N} x_i w_{ij} h_j,
+$$
+<p>&nbsp;<br>
+
+<p>where the binary values taken on by the nodes are most commonly 0 and 1.</p>
+</div>
+</section>
+
+<section>
+<h2 id="gaussian-binary">Gaussian binary </h2>
+
+<div class="alert alert-block alert-block alert-text-normal">
+<b>Gaussian-Binary RBM:</b>
+<p>
+
+<p>Another varient is the RBM where the visible units are Gaussian while the hidden units remain binary:</p>
+<p>&nbsp;<br>
+$$
+	E(\mathbf{x}, \mathbf{h}) = \sum_i^M \frac{(x_i - a_i)^2}{2\sigma_i^2} - \sum_j^N b_j h_j - \sum_{i,j}^{M,N} \frac{x_i w_{ij} h_j}{\sigma_i^2}. 
+$$
+<p>&nbsp;<br>
+</div>
+</section>
+
+<section>
+<h2 id="representing-the-wave-function">Representing the wave function </h2>
+
+<p>The wavefunction should be a probability amplitude depending on
+ \( \boldsymbol{x} \). The RBM model is given by the joint distribution of
+ \( \boldsymbol{x} \) and \( \boldsymbol{h} \)
+</p>
+
+<p>&nbsp;<br>
+$$
+        F_{rbm}(\mathbf{x},\mathbf{h}) = \frac{1}{Z} e^{-\frac{1}{T_0}E(\mathbf{x},\mathbf{h})}.
+$$
+<p>&nbsp;<br>
+
+<p>To find the marginal distribution of \( \boldsymbol{x} \) we set:</p>
+
+<p>&nbsp;<br>
+$$
+        F_{rbm}(\mathbf{x}) =\frac{1}{Z}\sum_\mathbf{h} e^{-E(\mathbf{x}, \mathbf{h})}.
+$$
+<p>&nbsp;<br>
+
+<p>Now this is what we use to represent the wave function, calling it a neural-network quantum state (NQS)</p>
+<p>&nbsp;<br>
+$$
+        \Psi (\mathbf{X}) = F_{rbm}(\mathbf{x}),
+$$
+<p>&nbsp;<br>
+
+<p>or we could square the wave function.</p>
+</section>
+
+<section>
+<h2 id="choose-the-cost-function">Choose the cost function </h2>
+
+<p>Now we don't necessarily have training data (unless we generate it by
+using some other method). However, what we do have is the variational
+principle which allows us to obtain the ground state wave function by
+minimizing the expectation value of the energy of a trial wavefunction
+(corresponding to the untrained NQS). Similarly to the traditional
+variational Monte Carlo method then, it is the local energy we wish to
+minimize. The gradient to use for the stochastic gradient descent
+procedure is
+</p>
+
+<p>&nbsp;<br>
+$$
+	C_i = \frac{\partial \langle E_L \rangle}{\partial \theta_i}
+	= 2(\langle E_L \frac{1}{\Psi}\frac{\partial \Psi}{\partial \theta_i} \rangle - \langle E_L \rangle \langle \frac{1}{\Psi}\frac{\partial \Psi}{\partial \theta_i} \rangle ),
+$$
+<p>&nbsp;<br>
+
+<p>where the local energy is given by</p>
+<p>&nbsp;<br>
+$$
+	E_L = \frac{1}{\Psi} \hat{\mathbf{H}} \Psi.
+$$
+<p>&nbsp;<br>
 </section>
 
 <section>

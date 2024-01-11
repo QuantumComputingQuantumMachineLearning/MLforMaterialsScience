@@ -16,7 +16,7 @@ Parts of this talk are based on "Artificial Intelligence and Machine Learning in
 !eblock
 
 !bblock
-These slides at URL:"https://mhjensenseminars.github.io/MachineLearningTalk/doc/web/overview.html"
+These slides at URL:"https://github.com/QuantumComputingQuantumMachineLearning/MLforMaterialsScience"
 !eblock
 
 !split
@@ -364,6 +364,15 @@ _Job market, a personal statement_: "A familiarity with ML is almost becoming a 
 * "Particle Data Group summary on ML methods":"https://pdg.lbl.gov/2021/reviews/rpp2021-rev-machine-learning.pdf"
 !eblock
 
+
+
+!split
+===== Good books with hands-on material and codes =====
+!bblock
+* "Sebastian Rashcka et al, Machine learning with Sickit-Learn and PyTorch":"https://sebastianraschka.com/blog/2022/ml-pytorch-book.html"
+* "David Foster, Generative Deep Learning with TensorFlow":"https://www.oreilly.com/library/view/generative-deep-learning/9781098134174/ch01.html"
+* "Bali and Gavras, Generative AI with Python and TensorFlow 2":"https://github.com/PacktPublishing/Hands-On-Generative-AI-with-Python-and-TensorFlow-2"
+!eblock
 
 
 
@@ -744,24 +753,117 @@ _The network parameters, to be optimized/learned_:
   o $W$ represents the interaction weights, a matrix of size $M\times N$.
 
 
-
-
 !split
 ===== Joint distribution =====
-
-The restricted Boltzmann machine is described by a Boltzmann distribution
+The restricted Boltzmann machine is described by a Bolztmann distribution
 !bt
-\begin{align}
+\[
 	P_{rbm}(\mathbf{x},\mathbf{h}) = \frac{1}{Z} e^{-\frac{1}{T_0}E(\mathbf{x},\mathbf{h})},
-\end{align}
+\]
 !et
 where $Z$ is the normalization constant or partition function, defined as 
 !bt
-\begin{align}
+\[
 	Z = \int \int e^{-\frac{1}{T_0}E(\mathbf{x},\mathbf{h})} d\mathbf{x} d\mathbf{h}.
-\end{align}
+\]
 !et
 It is common to ignore $T_0$ by setting it to one. 
+
+!split
+===== Network Elements, the energy function  =====
+
+The function $E(\mathbf{x},\mathbf{h})$ gives the _energy_ of a
+configuration (pair of vectors) $(\mathbf{x}, \mathbf{h})$. The lower
+the energy of a configuration, the higher the probability of it. This
+function also depends on the parameters $\mathbf{a}$, $\mathbf{b}$ and
+$W$. Thus, when we adjust them during the learning procedure, we are
+adjusting the energy function to best fit our problem.
+
+
+!split
+===== Defining different types of RBMs (Energy based models) =====
+
+There are different variants of RBMs, and the differences lie in the types of visible and hidden units we choose as well as in the implementation of the energy function $E(\mathbf{x},\mathbf{h})$. The connection between the nodes in the two layers is given by the weights $w_{ij}$. 
+
+!bblock Binary-Binary RBM:
+
+RBMs were first developed using binary units in both the visible and hidden layer. The corresponding energy function is defined as follows:
+!bt
+\[
+	E(\mathbf{x}, \mathbf{h}) = - \sum_i^M x_i a_i- \sum_j^N b_j h_j - \sum_{i,j}^{M,N} x_i w_{ij} h_j,
+\]
+!et
+where the binary values taken on by the nodes are most commonly 0 and 1.
+!eblock
+
+
+!split
+===== Gaussian binary =====
+
+
+!bblock Gaussian-Binary RBM:
+
+Another varient is the RBM where the visible units are Gaussian while the hidden units remain binary:
+!bt
+\[
+	E(\mathbf{x}, \mathbf{h}) = \sum_i^M \frac{(x_i - a_i)^2}{2\sigma_i^2} - \sum_j^N b_j h_j - \sum_{i,j}^{M,N} \frac{x_i w_{ij} h_j}{\sigma_i^2}. 
+\]
+!et
+!eblock
+
+!split
+===== Representing the wave function =====
+
+The wavefunction should be a probability amplitude depending on
+ $\bm{x}$. The RBM model is given by the joint distribution of
+ $\bm{x}$ and $\bm{h}$
+
+!bt
+\[
+        F_{rbm}(\mathbf{x},\mathbf{h}) = \frac{1}{Z} e^{-\frac{1}{T_0}E(\mathbf{x},\mathbf{h})}.
+\]
+!et
+
+To find the marginal distribution of $\bm{x}$ we set:
+
+!bt
+\[
+        F_{rbm}(\mathbf{x}) =\frac{1}{Z}\sum_\mathbf{h} e^{-E(\mathbf{x}, \mathbf{h})}.
+\]
+!et
+
+Now this is what we use to represent the wave function, calling it a neural-network quantum state (NQS)
+!bt
+\[
+        \Psi (\mathbf{X}) = F_{rbm}(\mathbf{x}),
+\]
+!et
+or we could square the wave function.
+
+!split
+===== Choose the cost function =====
+
+Now we don't necessarily have training data (unless we generate it by
+using some other method). However, what we do have is the variational
+principle which allows us to obtain the ground state wave function by
+minimizing the expectation value of the energy of a trial wavefunction
+(corresponding to the untrained NQS). Similarly to the traditional
+variational Monte Carlo method then, it is the local energy we wish to
+minimize. The gradient to use for the stochastic gradient descent
+procedure is
+
+!bt
+\[
+	C_i = \frac{\partial \langle E_L \rangle}{\partial \theta_i}
+	= 2(\langle E_L \frac{1}{\Psi}\frac{\partial \Psi}{\partial \theta_i} \rangle - \langle E_L \rangle \langle \frac{1}{\Psi}\frac{\partial \Psi}{\partial \theta_i} \rangle ),
+\]
+!et
+where the local energy is given by
+!bt
+\[
+	E_L = \frac{1}{\Psi} \hat{\mathbf{H}} \Psi.
+\]
+!et
 
 
 
@@ -930,10 +1032,6 @@ o There are not enough potential employees in AI/ML and QIT . It is a supply gap
 o A BSc with specialization  is a good place to start
 o It is tremendously important to get everyone speaking the same language. Facility with the vernacular of quantum mechanics is a big plus.
 o There is a huge list of areas where technical expertise may be important. But employers are often more concerned with attributes like project management, working well in a team, interest in the field, and adaptability than in specific technical skills.
-
-
-
-
 
 
 
