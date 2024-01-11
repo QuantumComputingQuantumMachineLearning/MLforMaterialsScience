@@ -26,6 +26,17 @@ Jane Kim (MSU), Julie Butler (MSU), Patrick Cook (MSU), Danny Jammooa (MSU), Dan
 Niyaz Beysengulov and Johannes Pollanen (experiment, MSU); Zachary Stewart, Jared Weidman, and Angela Wilson (quantum chemistry, MSU)
 Jonas Flaten, Oskar, Leinonen, Øyvind Sigmundson Schøyen, Stian Dysthe Bilek, and Håkon Emil Kristiansen (UiO). Marianne Bathen, David Gongorra and Lasse Vines (experiments (UiO). Excuses to those I have omitted.
 
+!split
+===== Machine learning. A simple perspective on the interface between ML and Physics =====
+
+FIGURE: [figures/mlimage.png, width=800 frac=1.0]
+
+
+!split
+===== ML in Nuclear  Physics (or any field in physics) =====
+
+FIGURE: [figures/ML-NP.pdf, width=900 frac=1.0]
+
 
 
 !split
@@ -140,7 +151,7 @@ discriminative in nature.
 ===== Example of discriminative modeling, "adapted from Generative Deeep Learning by David Foster":"https://www.oreilly.com/library/view/generative-deep-learning/9781098134174/ch01.html"  =====
 
 
-FIGURE: [figures/ML-NP.pdf, width=900 frac=1.0]
+FIGURE: [figures/standarddeeplearning.png, width=900 frac=1.0]
 
 
 !split
@@ -356,17 +367,6 @@ _Job market, a personal statement_: "A familiarity with ML is almost becoming a 
 
 
 
-
-!split
-===== Machine learning. A simple perspective on the interface between ML and Physics =====
-
-FIGURE: [figures/mlimage.png, width=800 frac=1.0]
-
-
-!split
-===== ML in Nuclear  Physics (or any field in physics) =====
-
-FIGURE: [figures/ML-NP.pdf, width=900 frac=1.0]
 
 
 
